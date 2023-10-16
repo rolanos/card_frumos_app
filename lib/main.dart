@@ -2,6 +2,8 @@ import 'package:card_frumos_app/core/colors.dart';
 import 'package:card_frumos_app/view/carousel.dart';
 import 'package:card_frumos_app/view/login_card.dart';
 import 'package:card_frumos_app/view/login_sms.dart';
+import 'package:card_frumos_app/view/start.dart';
+import 'package:card_frumos_app/view/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -33,29 +35,30 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               textTheme: TextTheme(
-                  titleMedium: TextStyle(
-                    fontSize: 58.sp,
-                    fontWeight: FontWeight.w500,
-                    color: ColorsUi.mainBlueText,
-                    height: 3.2.h,
-                  ),
-                  titleSmall: TextStyle(
-                    fontSize: 55.sp,
-                    fontWeight: FontWeight.w500,
-                    color: ColorsUi.mainWhite,
-                  ),
-                  bodyLarge: TextStyle(
-                    fontSize: 40.sp,
-                    fontWeight: FontWeight.w400,
-                    color: ColorsUi.mainGrey,
-                  ),
-                  bodyMedium: TextStyle(
-                    fontSize: 36.sp,
-                    fontWeight: FontWeight.w400,
-                    color: ColorsUi.mainTextGrey,
-                  )),
+                titleMedium: TextStyle(
+                  fontSize: 58.sp,
+                  fontWeight: FontWeight.w500,
+                  color: ColorsUI.mainBlueText,
+                  height: 3.2.h,
+                ),
+                titleSmall: TextStyle(
+                  fontSize: 55.sp,
+                  fontWeight: FontWeight.w500,
+                  color: ColorsUI.mainWhite,
+                ),
+                bodyLarge: TextStyle(
+                  fontSize: 40.sp,
+                  fontWeight: FontWeight.w400,
+                  color: ColorsUI.mainGrey,
+                ),
+                bodyMedium: TextStyle(
+                  fontSize: 36.sp,
+                  fontWeight: FontWeight.w400,
+                  color: ColorsUI.mainTextGrey,
+                ),
+              ),
             ),
-            home: LoginSmsScreen(),
+            home: WelcomeScreen(),
           );
         });
   }

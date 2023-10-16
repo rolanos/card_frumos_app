@@ -1,4 +1,5 @@
 import 'package:card_frumos_app/core/colors.dart';
+import 'package:card_frumos_app/view/widget/container_button.dart';
 import 'package:card_frumos_app/view/widget/input_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,19 +70,9 @@ class LoginCardScreen extends StatelessWidget {
               SizedBox(
                 height: 78.h,
               ),
-              Container(
-                width: 690.w,
-                height: 120.h,
-                decoration: BoxDecoration(
-                  color: ColorsUi.mainBlue,
-                  borderRadius: BorderRadius.circular(59.0.sp),
-                ),
-                child: Center(
-                  child: Text(
-                    "Login",
-                    style: Theme.of(context).textTheme.titleSmall,
-                  ),
-                ),
+              ContainerButton(
+                color: ColorsUI.mainBlue,
+                text: "Login",
               ),
             ],
           ),

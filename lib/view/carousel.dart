@@ -92,14 +92,12 @@ class CarouselScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
-                SizedBox(
-                  height: 540.h,
-                ),
+                Spacer(),
                 Container(
                   width: 690.w,
                   height: 120.h,
                   decoration: BoxDecoration(
-                    color: ColorsUi.mainBlue,
+                    color: ColorsUI.mainBlue,
                     borderRadius: BorderRadius.circular(59.0.sp),
                   ),
                   child: Center(
@@ -120,9 +118,12 @@ class CarouselScreen extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
-                            .copyWith(color: ColorsUi.secondaryTextGrey)),
+                            .copyWith(color: ColorsUI.secondaryTextGrey)),
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 130.h,
+                ),
               ],
             ),
           );
@@ -143,8 +144,15 @@ Widget buildIndicator(int activeIndex, int count) => AnimatedSmoothIndicator(
       activeIndex: activeIndex,
       count: count,
       effect: JumpingDotEffect(
-          dotWidth: 26.h,
-          dotHeight: 26.h,
-          spacing: 27.w,
-          dotColor: const Color.fromRGBO(54, 54, 54, 1)),
+        dotWidth: 26.h,
+        dotHeight: 26.h,
+        spacing: 27.w,
+        activeDotColor: const Color.fromRGBO(54, 54, 54, 1),
+        dotColor: const Color.fromRGBO(
+          217,
+          217,
+          217,
+          1,
+        ),
+      ),
     );

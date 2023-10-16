@@ -72,11 +72,12 @@ class LoginSmsScreen extends StatelessWidget {
                 child: Text(
                   "Через несколько секунд на ваш номер телефона будет отправлено смс с кодом",
                   textAlign: TextAlign.center,
+                  overflow: TextOverflow.visible,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
               SizedBox(
-                height: 100.h,
+                height: 90.h,
               ),
               SizedBox(
                 height: 133.h,
@@ -126,7 +127,7 @@ class LoginSmsScreen extends StatelessWidget {
                             decoration: BoxDecoration(
                               border: Border(
                                 bottom: BorderSide(
-                                  color: ColorsUi.mainBlueText,
+                                  color: ColorsUI.mainBlueText,
                                   width: 1.0, // Underline thickness
                                 ),
                               ),
@@ -136,7 +137,7 @@ class LoginSmsScreen extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 48.sp,
                                   fontWeight: FontWeight.w500,
-                                  color: ColorsUi.mainBlueText),
+                                  color: ColorsUI.mainBlueText),
                             ),
                           ),
                         ],
@@ -146,17 +147,17 @@ class LoginSmsScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 169.h,
+                height: 150.h,
               ),
               InputContainer(title: "Введите код из смс:", hint: "xxx xxx"),
               SizedBox(
-                height: 103.h,
+                height: 78.h,
               ),
               Container(
                 width: 690.w,
                 height: 120.h,
                 decoration: BoxDecoration(
-                  color: ColorsUi.mainBlue,
+                  color: ColorsUI.mainBlue,
                   borderRadius: BorderRadius.circular(59.0.sp),
                 ),
                 child: Center(

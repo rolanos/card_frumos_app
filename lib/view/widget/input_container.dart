@@ -11,9 +11,8 @@ class InputContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 690.w,
-      height: 200.h,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
