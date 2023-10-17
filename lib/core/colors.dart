@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-class ColorsUI {
+abstract class ColorsUI {
   static Color mainBlueText = const Color.fromRGBO(3, 156, 170, 1);
   static Color mainBlue = const Color.fromRGBO(0, 170, 173, 1);
 
@@ -13,4 +13,6 @@ class ColorsUI {
 
   static Color textBlackContract = const Color.fromRGBO(122, 122, 122, 1);
   static Color containerGray = const Color.fromRGBO(216, 216, 216, 1);
+
+  static Color mainTextRed = const Color.fromRGBO(255, 112, 116, 1);
 }

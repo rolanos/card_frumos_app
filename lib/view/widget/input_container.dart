@@ -6,8 +6,13 @@ class InputContainer extends StatelessWidget {
   final String title;
   final String hint;
   final SvgPicture? icon;
+  final Color? hintColor;
   const InputContainer(
-      {super.key, required this.title, required this.hint, this.icon});
+      {super.key,
+      required this.title,
+      required this.hint,
+      this.icon,
+      this.hintColor});
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +51,7 @@ class InputContainer extends StatelessWidget {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: hint,
+                        hintStyle: TextStyle(color: hintColor),
                       ),
                     ),
                   ),

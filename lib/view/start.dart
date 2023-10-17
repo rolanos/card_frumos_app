@@ -7,6 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'dart:math' as math;
 
+import 'package:go_router/go_router.dart';
+
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
 
@@ -25,7 +27,7 @@ class StartScreen extends StatelessWidget {
                     top: 81.h,
                     left: 84.0.w,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () => context.pop(),
                       child: SvgPicture.asset(
                         "asset/icons/arrow_back.svg",
                         width: 52,
@@ -121,6 +123,7 @@ class StartScreen extends StatelessWidget {
             ContainerButton(
               color: ColorsUI.mainBlue,
               text: 'Am Card Frumos',
+              onTap: () => context.go('/carousel/welcome/start/login_card'),
             ),
             SizedBox(
               height: 52.h,
@@ -128,16 +131,20 @@ class StartScreen extends StatelessWidget {
             ContainerButton(
               color: ColorsUI.mainBlue,
               text: 'Nu Am Card Frumos',
+              onTap: () => context.go('/carousel/welcome/start/login_card'),
             ),
             SizedBox(
               height: 52.h,
             ),
-            Center(
-              child: Text(
-                "Omite",
-                style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: ColorsUI.secondaryTextGrey,
-                    ),
+            GestureDetector(
+              onTap: () => context.go('/carousel/welcome/start/login_card'),
+              child: Center(
+                child: Text(
+                  "Omite",
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ColorsUI.secondaryTextGrey,
+                      ),
+                ),
               ),
             ),
           ],

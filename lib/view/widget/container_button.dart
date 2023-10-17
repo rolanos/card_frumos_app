@@ -5,13 +5,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ContainerButton extends StatelessWidget {
   final String text;
   final Color color;
+  final Function()? onTap;
 
-  const ContainerButton({super.key, required this.color, required this.text});
+  const ContainerButton(
+      {super.key, required this.color, required this.text, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (onTap != null) {
+          onTap!();
+        }
+      },
       child: Container(
         width: 690.w,
         height: 120.h,

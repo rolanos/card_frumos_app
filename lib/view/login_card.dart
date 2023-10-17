@@ -4,6 +4,7 @@ import 'package:card_frumos_app/view/widget/input_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginCardScreen extends StatelessWidget {
   const LoginCardScreen({super.key});
@@ -25,7 +26,7 @@ class LoginCardScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: 84.0.w, vertical: 81.h),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () => context.pop(),
                         child: SvgPicture.asset(
                           "asset/icons/arrow_back.svg",
                           width: 52,
@@ -73,6 +74,8 @@ class LoginCardScreen extends StatelessWidget {
               ContainerButton(
                 color: ColorsUI.mainBlue,
                 text: "Login",
+                onTap: () =>
+                    context.go('/carousel/welcome/start/login_card/login_sms'),
               ),
             ],
           ),

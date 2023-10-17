@@ -1,11 +1,13 @@
 import 'dart:math' as math;
 import 'dart:ui';
 
+import 'package:card_frumos_app/view/widget/container_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:card_frumos_app/core/colors.dart';
+import 'package:go_router/go_router.dart';
 
 enum AgreementsEnum {
   Privacy,
@@ -68,27 +70,14 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Stack(
+          fit: StackFit.expand,
           children: [
-            Image.asset("asset/images/card_fr_1.png"),
-            Positioned(
-              top: 150.h,
-              left: 537.w,
-              child: SizedBox(
-                  height: 250.h,
-                  width: 250.w,
-                  child: Image.asset("asset/images/petal_3.png")),
-            ),
-            Positioned(
-              top: -220.h,
-              right: -25.w,
-              child: Transform.rotate(
-                angle: 11 / 20 * math.pi,
-                child: SizedBox(
-                    height: 500.h,
-                    width: 500.w,
-                    child: ImageFiltered(
-                        imageFilter: ImageFilter.blur(sigmaX: 1.8, sigmaY: 1.8),
-                        child: Image.asset("asset/images/petal_2.png"))),
+            SizedBox(
+              height: 2000.h,
+              width: 1080.w,
+              child: Image.asset(
+                "asset/images/card_frame.png",
+                fit: BoxFit.fill,
               ),
             ),
             Positioned(
@@ -150,27 +139,15 @@ class WelcomeScreen extends StatelessWidget {
                       SizedBox(
                         height: 160.h,
                       ),
-                      Container(
-                        height: 120.h,
-                        width: 690.w,
-                        decoration: BoxDecoration(
-                          color: agreements.isSuccess
-                              ? ColorsUI.mainBlue
-                              : ColorsUI.containerGray,
-                          borderRadius: BorderRadius.circular(59.sp),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Agree & Proceed",
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(
-                                  color: ColorsUI.mainWhite,
-                                ),
-                          ),
-                        ),
-                      ),
+                      ContainerButton(
+                        color: agreements.isSuccess
+                            ? ColorsUI.mainBlue
+                            : ColorsUI.containerGray,
+                        text: "Agree & Proceed",
+                        onTap: () => (agreements.isSuccess)
+                            ? context.go('/carousel/welcome/start')
+                            : null,
+                      )
                     ],
                   );
                 }),
@@ -214,8 +191,8 @@ class RuleRow extends StatelessWidget {
               }
             },
             child: AnimatedContainer(
-              height: (agreements.take(agreementsType) == true) ? 63.sp : 61.sp,
-              width: (agreements.take(agreementsType) == true) ? 63.sp : 61.sp,
+              height: (agreements.take(agreementsType) == true) ? 62.sp : 61.sp,
+              width: (agreements.take(agreementsType) == true) ? 62.sp : 61.sp,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
