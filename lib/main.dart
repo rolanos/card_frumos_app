@@ -1,9 +1,13 @@
 import 'package:card_frumos_app/core/colors.dart';
+import 'package:card_frumos_app/view/bar_code.dart';
 import 'package:card_frumos_app/view/carousel.dart';
+import 'package:card_frumos_app/view/check_bonus.dart';
 import 'package:card_frumos_app/view/login_card.dart';
 import 'package:card_frumos_app/view/login_sms.dart';
 import 'package:card_frumos_app/view/login_wrong_code.dart';
+import 'package:card_frumos_app/view/menu.dart';
 import 'package:card_frumos_app/view/start.dart';
+import 'package:card_frumos_app/view/submit_form.dart';
 import 'package:card_frumos_app/view/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +20,8 @@ void main() {
 buildAnimatedRouting(GoRouterState state, Widget screen) {
   return CustomTransitionPage(
     key: state.pageKey,
+    transitionDuration: Duration(milliseconds: 225),
+    reverseTransitionDuration: Duration(milliseconds: 225),
     child: screen,
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       return FadeTransition(
@@ -33,50 +39,81 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/carousel',
+      initialLocation: '/submit_form',
       routes: [
         GoRoute(
+          path: '/submit_form',
+          pageBuilder: (context, state) =>
+              buildAnimatedRouting(state, const SubmitFormScreen()),
+        ),
+        GoRoute(
           path: '/carousel',
-          builder: (context, state) => CarouselScreen(),
           pageBuilder: (context, state) =>
               buildAnimatedRouting(state, CarouselScreen()),
           routes: [
             GoRoute(
               path: 'welcome',
               name: 'welcome',
-              builder: (context, state) => WelcomeScreen(),
               pageBuilder: (context, state) =>
                   buildAnimatedRouting(state, WelcomeScreen()),
               routes: [
                 GoRoute(
                   path: 'start',
-                  builder: (context, state) => const StartScreen(),
                   pageBuilder: (context, state) =>
-                      buildAnimatedRouting(state, StartScreen()),
+                      buildAnimatedRouting(state, const StartScreen()),
                   routes: [
                     GoRoute(
                       path: 'login_card',
-                      builder: (context, state) => const LoginCardScreen(),
                       pageBuilder: (context, state) =>
-                          buildAnimatedRouting(state, LoginCardScreen()),
+                          buildAnimatedRouting(state, const LoginCardScreen()),
                       routes: [
                         GoRoute(
                           path: 'login_sms',
-                          builder: (context, state) => const LoginSmsScreen(),
-                          pageBuilder: (context, state) =>
-                              buildAnimatedRouting(state, LoginSmsScreen()),
+                          pageBuilder: (context, state) => buildAnimatedRouting(
+                              state, const LoginSmsScreen()),
                           routes: [
                             GoRoute(
                               path: 'login_wrong_code',
-                              builder: (context, state) =>
-                                  const LoginWrongCodeScreen(),
                               pageBuilder: (context, state) =>
                                   buildAnimatedRouting(
-                                      state, LoginWrongCodeScreen()),
+                                      state, const LoginWrongCodeScreen()),
+                              routes: [
+                                GoRoute(
+                                  path: 'submit_form',
+                                  pageBuilder: (context, state) =>
+                                      buildAnimatedRouting(
+                                    state,
+                                    const SubmitFormScreen(),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
                       ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
+        StatefulShellRoute.indexedStack(
+          pageBuilder: (context, state, navigationShell) =>
+              buildAnimatedRouting(
+                  state, MenuScreen(navigationShell: navigationShell)),
+          branches: [
+            StatefulShellBranch(
+              routes: [
+                GoRoute(
+                  path: '/check_bonus',
+                  pageBuilder: (context, state) =>
+                      buildAnimatedRouting(state, const CheckBonusScreen()),
+                  routes: [
+                    GoRoute(
+                      path: 'bar_code',
+                      pageBuilder: (context, state) =>
+                          buildAnimatedRouting(state, const BarCodeScreen()),
                     ),
                   ],
                 ),
@@ -98,6 +135,22 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Futura',
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              selectedLabelStyle: TextStyle(
+                fontSize: 26.sp,
+                color: const Color.fromRGBO(74, 74, 74, 1),
+                fontWeight: FontWeight.w500,
+              ),
+              unselectedLabelStyle: TextStyle(
+                fontSize: 26.sp,
+                fontWeight: FontWeight.w500,
+                color: const Color.fromRGBO(74, 74, 74, 1),
+              ),
+              unselectedIconTheme: IconThemeData(
+                size: 63.w,
+              ),
+              selectedIconTheme: IconThemeData(size: 63.w),
+            ),
             inputDecorationTheme: InputDecorationTheme(
               hintStyle: TextStyle(
                 color: const Color.fromRGBO(224, 224, 224, 1),

@@ -27,7 +27,7 @@ class LoginWrongCodeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Spacer(
+            const Spacer(
               flex: 3,
             ),
             Text(
@@ -35,7 +35,7 @@ class LoginWrongCodeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge,
             ),
-            Spacer(
+            const Spacer(
               flex: 5,
             ),
             Container(
@@ -52,7 +52,7 @@ class LoginWrongCodeScreen extends StatelessWidget {
                     .copyWith(color: ColorsUI.mainBlue),
               ),
             ),
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
             InputContainer(
@@ -60,14 +60,16 @@ class LoginWrongCodeScreen extends StatelessWidget {
               hint: "xxx xxx",
               hintColor: ColorsUI.mainTextRed,
             ),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
             ContainerButton(
               color: ColorsUI.mainBlue,
               text: "Login",
+              onTap: () => context.go(
+                  "/carousel/welcome/start/login_card/login_sms/login_wrong_code/submit_form"),
             ),
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
           ],
