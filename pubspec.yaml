@@ -93,11 +93,11 @@ flutter:
     - family: Futura
       fonts:
       - asset: asset/fonts/FuturaNewMedium-Reg.ttf
-        weight: 400
-      - asset: asset/fonts/futura-new-demi-regular.otf
         weight: 500
-      - asset: asset/fonts/FuturaNewBold-Reg.ttf
+      - asset: asset/fonts/futura-new-demi-regular.otf
         weight: 600
+      - asset: asset/fonts/FuturaNewBold-Reg.ttf
+        weight: 700
   #fonts:
   #  - family: Schyler
   #     fonts:

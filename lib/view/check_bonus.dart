@@ -47,6 +47,7 @@ class CheckBonusScreen extends StatelessWidget {
               fontSize: 112.sp,
               fontWeight: FontWeight.w600,
               color: ColorsUI.mainBlue,
+              letterSpacing: -7.sp,
             ),
           ),
           const Spacer(
@@ -54,23 +55,37 @@ class CheckBonusScreen extends StatelessWidget {
           ),
           SizedBox(
             height: 300.h,
+            width: 1.sw,
             child: Stack(
+              fit: StackFit.expand,
               children: [
-                Text(
-                  "125",
-                  style: TextStyle(
-                      fontSize: 193.sp,
-                      color: ColorsUI.mainTextRed,
-                      fontWeight: FontWeight.w600),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Text(
+                    "125",
+                    style: TextStyle(
+                        fontSize: 193.sp,
+                        color: ColorsUI.mainTextRed,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
                 Positioned(
-                  top: 211.h,
-                  child: Text(
-                    "Petale Bonus",
-                    style: TextStyle(
-                      fontSize: 72.sp,
-                      fontWeight: FontWeight.w500,
-                      color: ColorsUI.mainBlue,
+                  bottom: 0,
+                  child: SizedBox(
+                    height: 90.h,
+                    width: 1.sw,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Petale Bonus",
+                          style: TextStyle(
+                            fontSize: 72.sp,
+                            fontWeight: FontWeight.w500,
+                            color: ColorsUI.mainBlue,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

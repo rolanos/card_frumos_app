@@ -8,12 +8,13 @@ class ContainerButton extends StatelessWidget {
   final Function()? onTap;
   final EdgeInsetsGeometry? margin;
 
-  const ContainerButton(
-      {super.key,
-      required this.color,
-      required this.text,
-      this.onTap,
-      this.margin});
+  const ContainerButton({
+    super.key,
+    required this.color,
+    required this.text,
+    this.onTap,
+    this.margin,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,6 @@ class ContainerButton extends StatelessWidget {
         }
       },
       child: Container(
-        width: 690.w,
         height: 120.h,
         margin: margin,
         decoration: BoxDecoration(

@@ -20,7 +20,7 @@ class MenuScreen extends StatelessWidget {
           borderRadius: BorderRadius.circular(115.r),
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 156, 156, 156),
+              color: Color.fromARGB(255, 182, 182, 182),
               offset: Offset(0, 35.h),
               blurRadius: 80.r,
               spreadRadius: 0.1.r,
@@ -30,6 +30,7 @@ class MenuScreen extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(115.r),
           child: BottomNavigationBar(
+            //backgroundColor: ColorsUI.mainWhite,
             type: BottomNavigationBarType.fixed,
             currentIndex: navigationShell.currentIndex,
             items: [

@@ -9,12 +9,14 @@ class InputForm extends StatelessWidget {
   final String hintText;
   final Validator validator;
   final TextInputType keyboardType;
+  final TextStyle? hintStyle;
   const InputForm(
       {super.key,
       required this.prefix,
       required this.hintText,
       this.validator = const EmptyValidator(),
-      this.keyboardType = TextInputType.name});
+      this.keyboardType = TextInputType.name,
+      this.hintStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +46,10 @@ class InputForm extends StatelessWidget {
                     return null;
                   },
                   decoration: InputDecoration(
+                    hintStyle: hintStyle,
                     contentPadding: EdgeInsets.zero,
                     errorStyle:
-                        TextStyle(fontSize: 0, color: Colors.transparent),
+                        const TextStyle(fontSize: 0, color: Colors.transparent),
                     prefixIcon: Row(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
