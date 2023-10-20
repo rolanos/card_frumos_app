@@ -136,6 +136,8 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             useMaterial3: true,
             bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              selectedItemColor: const Color.fromRGBO(74, 74, 74, 1),
+              unselectedItemColor: const Color.fromRGBO(74, 74, 74, 1),
               selectedLabelStyle: TextStyle(
                 fontSize: 26.sp,
                 color: const Color.fromRGBO(74, 74, 74, 1),
