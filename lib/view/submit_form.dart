@@ -120,7 +120,7 @@ class SubmitFormScreen extends StatelessWidget {
                         height: 30.h,
                       ),
                       InputForm(
-                        prefix: "Fex:",
+                        prefix: "Sex:",
                         hintText: "F/M",
                         validator: SexValidator(),
                         hintStyle: hintStyle,

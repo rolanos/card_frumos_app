@@ -2,10 +2,12 @@ import 'package:card_frumos_app/core/colors.dart';
 import 'package:card_frumos_app/view/bar_code.dart';
 import 'package:card_frumos_app/view/carousel.dart';
 import 'package:card_frumos_app/view/check_bonus.dart';
+import 'package:card_frumos_app/view/home_page.dart';
 import 'package:card_frumos_app/view/login_card.dart';
 import 'package:card_frumos_app/view/login_sms.dart';
 import 'package:card_frumos_app/view/login_wrong_code.dart';
 import 'package:card_frumos_app/view/menu.dart';
+import 'package:card_frumos_app/view/promo_inside.dart';
 import 'package:card_frumos_app/view/start.dart';
 import 'package:card_frumos_app/view/submit_form.dart';
 import 'package:card_frumos_app/view/welcome.dart';
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/submit_form',
+      initialLocation: '/home',
       routes: [
         GoRoute(
           path: '/submit_form',
@@ -106,14 +108,14 @@ class MyApp extends StatelessWidget {
             StatefulShellBranch(
               routes: [
                 GoRoute(
-                  path: '/check_bonus',
+                  path: '/home',
                   pageBuilder: (context, state) =>
-                      buildAnimatedRouting(state, const CheckBonusScreen()),
+                      buildAnimatedRouting(state, const HomePage()),
                   routes: [
                     GoRoute(
-                      path: 'bar_code',
-                      pageBuilder: (context, state) =>
-                          buildAnimatedRouting(state, const BarCodeScreen()),
+                      path: 'promo_inside',
+                      pageBuilder: (context, state) => buildAnimatedRouting(
+                          state, const PromoInsideScreen()),
                     ),
                   ],
                 ),
