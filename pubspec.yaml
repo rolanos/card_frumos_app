@@ -49,6 +49,9 @@ dependencies:
   #navigation
   go_router: ^11.1.4
 
+  #animationed splash
+  lottie: ^2.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -76,6 +79,7 @@ flutter:
     - asset/icons/
     - asset/images/
     - asset/fonts/
+    - asset/videos/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

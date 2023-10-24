@@ -8,6 +8,7 @@ import 'package:card_frumos_app/view/login_sms.dart';
 import 'package:card_frumos_app/view/login_wrong_code.dart';
 import 'package:card_frumos_app/view/menu.dart';
 import 'package:card_frumos_app/view/promo_inside.dart';
+import 'package:card_frumos_app/view/splash.dart';
 import 'package:card_frumos_app/view/start.dart';
 import 'package:card_frumos_app/view/submit_form.dart';
 import 'package:card_frumos_app/view/welcome.dart';
@@ -41,8 +42,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/home',
+      initialLocation: '/splash',
       routes: [
+        GoRoute(
+          path: '/splash',
+          pageBuilder: (context, state) => buildAnimatedRouting(
+            state,
+            SplashScreen(),
+          ),
+        ),
         GoRoute(
           path: '/submit_form',
           pageBuilder: (context, state) =>
