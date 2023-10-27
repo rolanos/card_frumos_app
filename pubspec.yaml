@@ -52,6 +52,9 @@ dependencies:
   #animationed splash
   lottie: ^2.7.0
 
+  #for dotted border container
+  dotted_border: ^2.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

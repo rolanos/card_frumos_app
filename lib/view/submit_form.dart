@@ -1,6 +1,7 @@
 import 'package:card_frumos_app/core/colors.dart';
 import 'package:card_frumos_app/core/validators.dart';
 import 'package:card_frumos_app/view/widget/container_button.dart';
+import 'package:card_frumos_app/view/widget/error_dialog.dart';
 import 'package:card_frumos_app/view/widget/input_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -133,7 +134,10 @@ class SubmitFormScreen extends StatelessWidget {
                   color: ColorsUI.mainBlue,
                   text: "Login",
                   margin: EdgeInsets.symmetric(horizontal: 130.w),
-                  onTap: () => context.go('/check_bonus'),
+                  onTap: () async => await showErrorDialog(
+                      "К данному номеру телефона уже привязана карта Card Frumos. У вас есть другая карта?",
+                      context),
+                  // context.go('/check_bonus'),
                 ),
                 const Spacer(flex: 1),
               ],

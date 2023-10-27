@@ -1,6 +1,7 @@
 import 'package:card_frumos_app/core/colors.dart';
 import 'package:card_frumos_app/view/bar_code.dart';
 import 'package:card_frumos_app/view/check_bonus.dart';
+import 'package:card_frumos_app/view/widget/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -37,6 +38,7 @@ class _MenuScreenState extends State<MenuScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
+      appBar: AppbarRow(),
       bottomNavigationBar: Container(
         margin: EdgeInsets.only(left: 40.w, right: 40.h, bottom: 40.h),
         height: (showFullMenu) ? 600.h : 210.h,

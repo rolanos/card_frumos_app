@@ -2,11 +2,13 @@ import 'package:card_frumos_app/core/colors.dart';
 import 'package:card_frumos_app/view/bar_code.dart';
 import 'package:card_frumos_app/view/carousel.dart';
 import 'package:card_frumos_app/view/check_bonus.dart';
+import 'package:card_frumos_app/view/history.dart';
 import 'package:card_frumos_app/view/home_page.dart';
 import 'package:card_frumos_app/view/login_card.dart';
 import 'package:card_frumos_app/view/login_sms.dart';
 import 'package:card_frumos_app/view/login_wrong_code.dart';
 import 'package:card_frumos_app/view/menu.dart';
+import 'package:card_frumos_app/view/profil.dart';
 import 'package:card_frumos_app/view/promo_inside.dart';
 import 'package:card_frumos_app/view/splash.dart';
 import 'package:card_frumos_app/view/start.dart';
@@ -42,7 +44,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
-      initialLocation: '/splash',
+      initialLocation: '/submit_form',
       routes: [
         GoRoute(
           path: '/splash',
@@ -125,6 +127,18 @@ class MyApp extends StatelessWidget {
                       pageBuilder: (context, state) => buildAnimatedRouting(
                           state, const PromoInsideScreen()),
                     ),
+                    GoRoute(
+                      path: 'profil',
+                      pageBuilder: (context, state) =>
+                          buildAnimatedRouting(state, ProfilScreen()),
+                      routes: [
+                        GoRoute(
+                          path: 'history',
+                          pageBuilder: (context, state) => buildAnimatedRouting(
+                              state, const HistoryScreen()),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ],

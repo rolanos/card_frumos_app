@@ -21,10 +21,6 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 50.h,
-            ),
-            const AppbarRow(),
-            SizedBox(
               height: 40.h,
             ),
             const MainCard(),
