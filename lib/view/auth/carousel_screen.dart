@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:card_frumos_app/core/colors.dart';
 import 'package:card_frumos_app/view/widget/container_button.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -6,8 +8,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+///Класс с данными для отображения карточки в ленте виджетов
+///[asset] - путь к изображению
+///[descriprion] - описание к изображению
+class PhotoCard {
+  final String asset;
+  final String descriprion;
+
+  PhotoCard({required this.asset, required this.descriprion});
+}
+
 class CarouselScreen extends StatelessWidget {
   int carouselIndex = 0;
+  //Временные заглушки под фотокарточки
   final List<PhotoCard> photoCards = [
     PhotoCard(
       asset: "asset/images/carousel_1.png",
@@ -94,7 +107,7 @@ class CarouselScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 ContainerButton(
                   color: ColorsUI.mainBlue,
                   text: 'Далее',
@@ -126,28 +139,21 @@ class CarouselScreen extends StatelessWidget {
       ),
     );
   }
-}
 
-class PhotoCard {
-  final String asset;
-  final String descriprion;
-
-  PhotoCard({required this.asset, required this.descriprion});
-}
-
-Widget buildIndicator(int activeIndex, int count) => AnimatedSmoothIndicator(
-      activeIndex: activeIndex,
-      count: count,
-      effect: JumpingDotEffect(
-        dotWidth: 26.h,
-        dotHeight: 26.h,
-        spacing: 27.w,
-        activeDotColor: const Color.fromRGBO(54, 54, 54, 1),
-        dotColor: const Color.fromRGBO(
-          217,
-          217,
-          217,
-          1,
+  Widget buildIndicator(int activeIndex, int count) => AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: count,
+        effect: JumpingDotEffect(
+          dotWidth: 26.h,
+          dotHeight: 26.h,
+          spacing: 27.w,
+          activeDotColor: const Color.fromRGBO(54, 54, 54, 1),
+          dotColor: const Color.fromRGBO(
+            217,
+            217,
+            217,
+            1,
+          ),
         ),
-      ),
-    );
+      );
+}

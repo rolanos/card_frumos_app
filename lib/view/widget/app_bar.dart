@@ -101,7 +101,6 @@ class AppbarRow extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size(1.sw, 265.h);
 }
 

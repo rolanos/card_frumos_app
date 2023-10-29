@@ -1,106 +1,12 @@
 import 'package:card_frumos_app/core/colors.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 
-class ProfilScreen extends StatelessWidget {
-  const ProfilScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 114.w),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 117.h,
-          ),
-          BonusContainer(
-            bonus: 125,
-          ),
-          SizedBox(
-            height: 690.h,
-          ),
-          NavigationCard(
-            onTap: () {},
-            svg: SvgPicture.asset(
-              "asset/icons/profile_red.svg",
-              width: 63.w,
-            ),
-            text: "Данные аккаунта",
-          ),
-          SizedBox(
-            height: 60.h,
-          ),
-          NavigationCard(
-            onTap: () {
-              context.go("/home/profil/history");
-            },
-            svg: SvgPicture.asset(
-              "asset/icons/time.svg",
-              width: 51.w,
-            ),
-            text: "История покупок",
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class NavigationCard extends StatelessWidget {
-  final SvgPicture svg;
-  final String text;
-  final Function() onTap;
-  const NavigationCard(
-      {super.key, required this.svg, required this.text, required this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTap(),
-      child: Container(
-        height: 180.h,
-        padding: EdgeInsets.symmetric(vertical: 50.h),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(90.r),
-          color: ColorsUI.mainWhite,
-          boxShadow: [
-            BoxShadow(
-              color: ColorsUI.containerGray,
-              blurRadius: 10.r,
-              spreadRadius: 0.5.r,
-              offset: Offset(0, 5.h),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            svg,
-            SizedBox(
-              width: 93.w - (svg.width ?? 50),
-            ),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 55.sp,
-                color: ColorsUI.mainBlue,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class BonusContainer extends StatelessWidget {
+///Контейнер с информацией о бонусе
+///[bonus] - значение накопленных бонусов
+class BonusInfoContainer extends StatelessWidget {
   final int bonus;
-  const BonusContainer({super.key, required this.bonus});
+  const BonusInfoContainer({super.key, required this.bonus});
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +74,7 @@ class BonusContainer extends StatelessWidget {
                   top: 49.h,
                   bottom: 36.h,
                 ),
-                child: VerticalDivider(
+                child: const VerticalDivider(
                   color: Color.fromRGBO(150, 150, 150, 1),
                 ),
               ),
@@ -182,7 +88,7 @@ class BonusContainer extends StatelessWidget {
                           text: "Преврати свои бонусы в скидку до ",
                           style: TextStyle(
                             fontSize: 30.sp,
-                            color: Color.fromRGBO(150, 150, 150, 1),
+                            color: const Color.fromRGBO(150, 150, 150, 1),
                           ),
                           children: [
                             TextSpan(
@@ -204,7 +110,7 @@ class BonusContainer extends StatelessWidget {
                               "Получай двойной бонус за каждую 5-ую бонусную покупку",
                           style: TextStyle(
                             fontSize: 30.sp,
-                            color: Color.fromRGBO(150, 150, 150, 1),
+                            color: const Color.fromRGBO(150, 150, 150, 1),
                           ),
                         ),
                       ),
@@ -222,7 +128,7 @@ class BonusContainer extends StatelessWidget {
 
 //Текст с точкой(Параграф)
 class UnorderedListItem extends StatelessWidget {
-  UnorderedListItem(this.text);
+  const UnorderedListItem(this.text, {super.key});
   final RichText text;
 
   @override
@@ -234,7 +140,7 @@ class UnorderedListItem extends StatelessWidget {
           "• ",
           style: TextStyle(
             fontSize: 30.sp,
-            color: Color.fromRGBO(150, 150, 150, 1),
+            color: const Color.fromRGBO(150, 150, 150, 1),
           ),
         ),
         Expanded(

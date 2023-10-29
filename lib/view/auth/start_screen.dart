@@ -18,7 +18,7 @@ class StartScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 1434.h,
               child: Stack(
                 children: [
@@ -42,13 +42,14 @@ class StartScreen extends StatelessWidget {
                       child: Transform.rotate(
                         angle: math.pi,
                         child: SizedBox(
-                            height: 500.h,
-                            width: 500.w,
-                            child: ImageFiltered(
-                                imageFilter:
-                                    ImageFilter.blur(sigmaX: 1.8, sigmaY: 1.8),
-                                child:
-                                    Image.asset("asset/images/petal_1.png"))),
+                          height: 500.h,
+                          width: 500.w,
+                          child: ImageFiltered(
+                            imageFilter:
+                                ImageFilter.blur(sigmaX: 1.8, sigmaY: 1.8),
+                            child: Image.asset("asset/images/petal_1.png"),
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -100,14 +101,16 @@ class StartScreen extends StatelessWidget {
                     top: 812.h,
                     child: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(59.sp),
-                          boxShadow: [
-                            BoxShadow(
-                                offset: Offset(100.w, 100.h),
-                                blurRadius: 140.sp,
-                                spreadRadius: 2.sp,
-                                color: Color.fromARGB(255, 187, 187, 187))
-                          ]),
+                        borderRadius: BorderRadius.circular(59.sp),
+                        boxShadow: [
+                          BoxShadow(
+                            offset: Offset(100.w, 100.h),
+                            blurRadius: 140.sp,
+                            spreadRadius: 2.sp,
+                            color: const Color.fromARGB(255, 187, 187, 187),
+                          )
+                        ],
+                      ),
                       child: Image.asset(
                         "asset/images/card_fr_1_2.png",
                         fit: BoxFit.fill,

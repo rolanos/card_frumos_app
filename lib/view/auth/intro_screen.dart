@@ -1,8 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 
+///Splash screen with intro animationed video
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -15,11 +16,11 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController controller;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    //Set time of animation
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3),
+      duration: const Duration(seconds: 3),
     );
     controller.addStatusListener((status) {
       if (status == AnimationStatus.completed) {

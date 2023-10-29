@@ -94,7 +94,7 @@ class SubmitFormScreen extends StatelessWidget {
                       InputForm(
                         prefix: "*Ziua de naștere:",
                         hintText: "22.26.1999",
-                        validator: DataValidator(),
+                        validator: DateValidator(),
                         keyboardType: TextInputType.datetime,
                         hintStyle: hintStyle,
                       ),

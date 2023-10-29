@@ -1,11 +1,10 @@
-import 'package:flutter/services.dart';
-
 abstract class Validator {
   const Validator();
 
   bool validate(String str);
 }
 
+///Пустой валидатор - всегда вернет true
 class EmptyValidator extends Validator {
   const EmptyValidator();
 
@@ -15,6 +14,7 @@ class EmptyValidator extends Validator {
   }
 }
 
+///Валидатор для имени
 class NameValidator extends Validator {
   @override
   bool validate(String str) {
@@ -26,7 +26,8 @@ class NameValidator extends Validator {
   }
 }
 
-class DataValidator extends Validator {
+///Валидатор для даты
+class DateValidator extends Validator {
   @override
   bool validate(String str) {
     if (RegExp(r'^[.0-9]+$').hasMatch(str)) {
@@ -41,6 +42,7 @@ class DataValidator extends Validator {
   }
 }
 
+///Валидатор для номера телефона
 class PhoneValidator extends Validator {
   @override
   bool validate(String str) {
@@ -52,6 +54,7 @@ class PhoneValidator extends Validator {
   }
 }
 
+///Валидатор для номера почты
 class EmailValidator extends Validator {
   @override
   bool validate(String str) {
@@ -64,6 +67,7 @@ class EmailValidator extends Validator {
   }
 }
 
+///Валидатор для номера пола
 class SexValidator extends Validator {
   @override
   bool validate(String str) {

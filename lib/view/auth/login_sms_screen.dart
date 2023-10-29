@@ -17,7 +17,7 @@ class LoginSmsScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 920.h,
                 width: 1080.w,
                 child: Stack(
@@ -151,7 +151,8 @@ class LoginSmsScreen extends StatelessWidget {
               SizedBox(
                 height: 150.h,
               ),
-              InputContainer(title: "Введите код из смс:", hint: "xxx xxx"),
+              const InputContainer(
+                  title: "Введите код из смс:", hint: "xxx xxx"),
               SizedBox(
                 height: 78.h,
               ),

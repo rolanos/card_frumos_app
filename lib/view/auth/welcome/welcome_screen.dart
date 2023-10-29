@@ -1,6 +1,4 @@
-import 'dart:math' as math;
-import 'dart:ui';
-
+import 'package:card_frumos_app/view/auth/welcome/welcome_dialog.dart';
 import 'package:card_frumos_app/view/widget/container_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,54 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:card_frumos_app/core/colors.dart';
 import 'package:go_router/go_router.dart';
 
-enum AgreementsEnum {
-  Privacy,
-  UserAgreement,
-  Bonus,
-}
-
-class Agreements {
-  bool _isPrivacyPolicy;
-  bool _isUserAgreement;
-  bool _isBonusProgram;
-
-  void tick(AgreementsEnum agr) {
-    switch (agr) {
-      case AgreementsEnum.Privacy:
-        _isPrivacyPolicy = !_isPrivacyPolicy;
-      case AgreementsEnum.UserAgreement:
-        _isUserAgreement = !_isUserAgreement;
-      case AgreementsEnum.Bonus:
-        _isBonusProgram = !_isBonusProgram;
-    }
-  }
-
-  bool take(AgreementsEnum agr) {
-    switch (agr) {
-      case AgreementsEnum.Privacy:
-        return _isPrivacyPolicy;
-      case AgreementsEnum.UserAgreement:
-        return _isUserAgreement;
-      case AgreementsEnum.Bonus:
-        return _isBonusProgram;
-    }
-  }
-
-  Agreements({
-    bool isPrivacyPolicy = false,
-    bool isUserAgreement = false,
-    bool isBonusProgram = false,
-  })  : _isPrivacyPolicy = isPrivacyPolicy,
-        _isUserAgreement = isUserAgreement,
-        _isBonusProgram = isBonusProgram;
-  bool get isSuccess {
-    if (_isPrivacyPolicy && _isUserAgreement && _isBonusProgram) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-}
+import 'agreement_helper.dart';
 
 //В макете "welcome page 2"
 class WelcomeScreen extends StatelessWidget {
@@ -100,7 +51,7 @@ class WelcomeScreen extends StatelessWidget {
                       RuleRow(
                         ruleText: "*Политика конфиденциальности",
                         agreements: agreements,
-                        agreementsType: AgreementsEnum.Privacy,
+                        agreementsType: AgreementsEnum.privacy,
                         setState: setState,
                         onTapCallback: () => showDialogInfo(
                           context,
@@ -114,7 +65,7 @@ class WelcomeScreen extends StatelessWidget {
                       RuleRow(
                         ruleText: "*Пользовательское соглашение",
                         agreements: agreements,
-                        agreementsType: AgreementsEnum.UserAgreement,
+                        agreementsType: AgreementsEnum.userAgreement,
                         setState: setState,
                         onTapCallback: () => showDialogInfo(
                           context,
@@ -128,7 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                       RuleRow(
                         ruleText: "*Правила бонусной программы",
                         agreements: agreements,
-                        agreementsType: AgreementsEnum.Bonus,
+                        agreementsType: AgreementsEnum.bonus,
                         setState: setState,
                         onTapCallback: () => showDialogInfo(
                           context,
@@ -160,7 +111,7 @@ class WelcomeScreen extends StatelessWidget {
   }
 }
 
-//Строка CheckBox + Text(подчеркнутый)
+///Строка CheckBox + Text(подчеркнутый)
 class RuleRow extends StatelessWidget {
   final String ruleText;
   final Function()? onTapCallback;
@@ -169,13 +120,14 @@ class RuleRow extends StatelessWidget {
   final Agreements agreements;
   final AgreementsEnum agreementsType;
 
-  RuleRow(
-      {super.key,
-      required this.ruleText,
-      this.onTapCallback,
-      required this.agreements,
-      required this.agreementsType,
-      required this.setState});
+  const RuleRow({
+    super.key,
+    required this.ruleText,
+    this.onTapCallback,
+    required this.agreements,
+    required this.agreementsType,
+    required this.setState,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -232,58 +184,4 @@ class RuleRow extends StatelessWidget {
       ),
     );
   }
-}
-
-showDialogInfo(
-  BuildContext context,
-  String title,
-  String text,
-) {
-  showDialog(
-    context: context,
-    barrierDismissible: true,
-    builder: (BuildContext context) => AlertDialog(
-      shadowColor: Colors.transparent,
-      surfaceTintColor: Colors.transparent,
-      backgroundColor: ColorsUI.mainWhite,
-      title: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(color: ColorsUI.mainBlue, fontSize: 50.sp),
-          ),
-          const Spacer(),
-          GestureDetector(
-            onTap: () => Navigator.of(context).pop(),
-            child: SvgPicture.asset(
-              "asset/icons/close.svg",
-              width: 39.sp,
-              height: 39.sp,
-            ),
-          ),
-        ],
-      ),
-      content: Container(
-        height: 835.h,
-        width: 750.w,
-        color: Colors.white,
-        child: Scrollbar(
-          interactive: true,
-          thumbVisibility: true,
-          child: SingleChildScrollView(
-            child: Container(
-              margin: EdgeInsets.only(right: 40.w),
-              width: 693.w,
-              child: Text(
-                text,
-                textAlign: TextAlign.left,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
 }

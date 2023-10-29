@@ -36,8 +36,8 @@ class InputContainer extends StatelessWidget {
             height: 120.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(59.sp),
-              border:
-                  Border.all(width: 1, color: Color.fromARGB(105, 46, 46, 46)),
+              border: Border.all(
+                  width: 1, color: const Color.fromARGB(105, 46, 46, 46)),
             ),
             child: Row(
               children: [

@@ -1,9 +1,12 @@
 import 'package:card_frumos_app/core/colors.dart';
-import 'package:card_frumos_app/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'card_image.dart';
+import 'product_card.dart';
+
+///Экран с описанием акции
 class PromoInsideScreen extends StatefulWidget {
   const PromoInsideScreen({super.key});
 
@@ -23,7 +26,7 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
             SizedBox(
               height: 40.h,
             ),
-            const MainCard(),
+            const CardImage(),
             SizedBox(
               height: 40.h,
             ),
@@ -32,8 +35,6 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
                 children: [
                   Container(
                     width: 450.w,
-                    // padding: EdgeInsets.only(
-                    //     top: 22.h, bottom: 12.h, left: 58.w, right: 58.w),
                     decoration: BoxDecoration(
                       color: ColorsUI.mainWhite,
                       borderRadius: BorderRadius.circular(75.r),
@@ -47,7 +48,7 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
                     ),
                     child: Row(
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         SizedBox(
                           height: 140.h,
                           width: 175.w,
@@ -80,7 +81,7 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
                             ],
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Center(
                           child: Container(
                             width: 4.w,
@@ -88,7 +89,7 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
                             color: const Color.fromRGBO(150, 150, 150, 1),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         SizedBox(
                           height: 140.h,
                           width: 150.w,
@@ -121,7 +122,7 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
                             ],
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                       ],
                     ),
                   ),
@@ -204,7 +205,7 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
               crossAxisCount: 2,
               shrinkWrap: true,
               childAspectRatio: 485 / 828,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               children: [
                 ProductCard(
                   name: 'Topicrem DA Ulei relipidant p/u piele sensibila',
@@ -259,188 +260,6 @@ class _PromoInsideScreenState extends State<PromoInsideScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ProductCard extends StatelessWidget {
-  final String name;
-  final String price;
-  final String pastPrice;
-
-  final int bonusCount;
-
-  final Image image;
-
-  const ProductCard(
-      {super.key,
-      required this.name,
-      required this.price,
-      required this.pastPrice,
-      required this.bonusCount,
-      required this.image});
-
-  @override
-  Widget build(BuildContext context) {
-    final textSpan = TextSpan(
-      text: pastPrice,
-      style: TextStyle(
-        fontSize: 50.sp,
-        color: const Color.fromRGBO(164, 164, 164, 1),
-        fontWeight: FontWeight.w400,
-      ),
-    );
-    final tp = TextPainter(text: textSpan, textDirection: TextDirection.ltr);
-    tp.layout();
-    return Container(
-      height: 820.h,
-      margin: EdgeInsets.only(right: 12.w, bottom: 12.h),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(46.r),
-        color: ColorsUI.mainWhite,
-        boxShadow: [
-          BoxShadow(
-            color: ColorsUI.containerGray,
-            blurRadius: 4.r,
-            spreadRadius: 0.5.r,
-            offset: Offset(0, 5.h),
-          ),
-        ],
-      ),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned(
-            top: 22.h,
-            left: 27.w,
-            child: Container(
-              width: 120.w,
-              height: 120.h,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(27.r),
-                color: Color.fromRGBO(242, 242, 242, 1),
-              ),
-              child: Center(
-                child: SizedBox(
-                  height: 90.h,
-                  child: Stack(
-                    children: [
-                      Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "Bonus:",
-                          style: TextStyle(
-                            fontSize: 32.sp,
-                            color: ColorsUI.mainBlue,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Text(
-                          bonusCount.toString(),
-                          style: TextStyle(
-                            fontSize: 48.sp,
-                            color: ColorsUI.mainTextRed,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 158.h,
-            left: 27.w,
-            right: 27.w,
-            child: Text(
-              name,
-              style: TextStyle(
-                fontSize: 38.sp,
-                color: Color.fromRGBO(50, 50, 50, 1),
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 82.h,
-            left: 27.w,
-            child: Text(
-              price,
-              style: TextStyle(
-                fontSize: 62.sp,
-                color: ColorsUI.mainBlue,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 28.h,
-            left: 34.w,
-            child: SizedBox(
-              height: 60.h,
-              width: tp.width + 10.w,
-              child: Stack(
-                children: [
-                  Positioned.fill(
-                    top: 33.h,
-                    bottom: 22.h,
-                    child: Container(
-                      height: 4.h,
-                      width: tp.width,
-                      decoration: BoxDecoration(
-                        color: ColorsUI.mainTextRed,
-                      ),
-                    ),
-                  ),
-                  Positioned.fill(
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        pastPrice,
-                        style: TextStyle(
-                          fontSize: 50.sp,
-                          color: const Color.fromRGBO(164, 164, 164, 1),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned.fill(
-              top: 450.h - image.height!,
-              child: Align(alignment: Alignment.topCenter, child: image)),
-        ],
-      ),
-    );
-  }
-}
-
-class MainCard extends StatelessWidget {
-  const MainCard({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 580.h,
-      decoration: BoxDecoration(
-        color: Colors.amber,
-        borderRadius: BorderRadius.circular(40.r),
-        boxShadow: [
-          BoxShadow(
-            color: ColorsUI.containerGray,
-            blurRadius: 15.r,
-            offset: Offset(0, 5.h),
-          ),
-        ],
       ),
     );
   }

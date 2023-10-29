@@ -63,7 +63,7 @@ showErrorDialog(String contextText, BuildContext context) async {
       actions: [
         StatefulBuilder(builder: (context, setState) {
           return AnimatedContainer(
-            duration: Duration(milliseconds: 755),
+            duration: const Duration(milliseconds: 755),
             padding: EdgeInsets.only(
               left: 60.w,
               right: 60.w,
