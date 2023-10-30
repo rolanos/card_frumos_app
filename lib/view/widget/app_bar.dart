@@ -38,7 +38,6 @@ class AppbarRow extends StatelessWidget implements PreferredSizeWidget {
           const Spacer(),
           Container(
             height: 180.h,
-            width: 380.w,
             padding: EdgeInsets.symmetric(horizontal: 32.w),
             decoration: BoxDecoration(
               color: ColorsUI.mainWhite,
@@ -53,44 +52,43 @@ class AppbarRow extends StatelessWidget implements PreferredSizeWidget {
             ),
             child: Row(
               children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        "asset/icons/notification.svg",
-                        width: 73.w,
-                      ),
-                      Text(
-                        "Уведомления",
-                        style: TextStyle(
-                            fontSize: 26.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                    ],
-                  ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      "asset/icons/notification.svg",
+                      width: 73.w,
+                    ),
+                    Text(
+                      "Уведомления",
+                      style: TextStyle(
+                          fontSize: 26.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(
-                        "asset/icons/profile.svg",
-                        width: 50.w,
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-                      Text(
-                        "Профиль",
-                        style: TextStyle(
-                            fontSize: 26.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                    ],
-                  ),
+                SizedBox(
+                  width: 18.w,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      "asset/icons/profile.svg",
+                      width: 50.w,
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Text(
+                      "Профиль",
+                      style: TextStyle(
+                          fontSize: 26.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -137,9 +135,10 @@ class CircleContainer extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                fontSize: 32.sp,
-                fontWeight: FontWeight.w500,
-                color: Colors.black),
+              fontSize: 32.sp,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
           ),
         ],
       ),

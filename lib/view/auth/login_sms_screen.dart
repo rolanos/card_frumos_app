@@ -159,6 +159,7 @@ class LoginSmsScreen extends StatelessWidget {
               ContainerButton(
                 color: ColorsUI.mainBlue,
                 text: "Login",
+                margin: EdgeInsetsDirectional.symmetric(horizontal: 195.w),
                 onTap: () => context.go(
                     "/carousel/welcome/start/login_card/login_sms/login_wrong_code"),
               ),

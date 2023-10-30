@@ -51,7 +51,9 @@ class InputContainer extends StatelessWidget {
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: hint,
-                        hintStyle: TextStyle(color: hintColor),
+                        hintStyle: (hintColor != null)
+                            ? TextStyle(color: hintColor)
+                            : null,
                       ),
                     ),
                   ),

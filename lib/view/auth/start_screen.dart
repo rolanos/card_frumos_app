@@ -95,37 +95,34 @@ class StartScreen extends StatelessWidget {
                   ),
                   //PETALS
 
-                  Positioned(
-                    left: 252.w,
-                    right: 252.w,
-                    top: 812.h,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(59.sp),
-                        boxShadow: [
-                          BoxShadow(
-                            offset: Offset(100.w, 100.h),
-                            blurRadius: 140.sp,
-                            spreadRadius: 2.sp,
-                            color: const Color.fromARGB(255, 187, 187, 187),
-                          )
-                        ],
-                      ),
-                      child: Image.asset(
-                        "asset/images/card_fr_1_2.png",
-                        fit: BoxFit.fill,
+                  Positioned.fill(
+                    left: 215.w,
+                    right: 10.w,
+                    top: 820.h,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(59.sp),
+                        ),
+                        child: Image.asset(
+                          "asset/images/card_fr_1_1.png",
+                          width: 735.w,
+                          height: 600.h,
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            SizedBox(
-              height: 200.h,
+            Spacer(
+              flex: 5,
             ),
             ContainerButton(
               color: ColorsUI.mainBlue,
               text: 'Am Card Frumos',
+              margin: EdgeInsets.symmetric(horizontal: 195.w),
               onTap: () => context.go('/carousel/welcome/start/login_card'),
             ),
             SizedBox(
@@ -134,6 +131,7 @@ class StartScreen extends StatelessWidget {
             ContainerButton(
               color: ColorsUI.mainBlue,
               text: 'Nu Am Card Frumos',
+              margin: EdgeInsets.symmetric(horizontal: 195.w),
               onTap: () => context.go('/carousel/welcome/start/login_card'),
             ),
             SizedBox(
@@ -149,6 +147,9 @@ class StartScreen extends StatelessWidget {
                       ),
                 ),
               ),
+            ),
+            Spacer(
+              flex: 2,
             ),
           ],
         ),

@@ -15,6 +15,7 @@ showErrorDialog(String contextText, BuildContext context) async {
       shadowColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       backgroundColor: ColorsUI.mainWhite,
+      elevation: 0,
       title: Container(
         height: 200.h,
         padding: EdgeInsets.only(left: 52.w, right: 60.w),

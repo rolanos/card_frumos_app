@@ -18,7 +18,7 @@ import 'package:go_router/go_router.dart';
 
 GoRouter getRouter(BuildContext context) {
   final GoRouter router = GoRouter(
-    initialLocation: '/home/profil',
+    initialLocation: '/home',
     routes: [
       GoRoute(
         path: '/splash',

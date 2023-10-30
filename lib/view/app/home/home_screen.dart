@@ -27,13 +27,6 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              height: 80.h,
-            ),
-            const AppbarRow(),
-            SizedBox(
-              height: 40.h,
-            ),
             NoRegistrationCard(
               title: "Разреши уведомления",
               text:
@@ -71,25 +64,34 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 30.h,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                FilterContainer(
-                  text: 'Новое',
-                  horizontalPadding: 50.w,
-                  isActive: true,
-                ),
-                FilterContainer(
-                  text: 'Осень жги!',
-                  horizontalPadding: 36.w,
-                  isActive: false,
-                ),
-                FilterContainer(
-                  text: 'Лучшие скидки',
-                  horizontalPadding: 32.w,
-                  isActive: false,
-                ),
-              ],
+            SizedBox(
+              height: 84.h,
+              child: ListView(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                children: [
+                  FilterContainer(
+                    text: 'Новое',
+                    horizontalPadding: 50.w,
+                    isActive: true,
+                  ),
+                  FilterContainer(
+                    text: 'Осень жги!',
+                    horizontalPadding: 36.w,
+                    isActive: false,
+                  ),
+                  FilterContainer(
+                    text: 'Лучшие скидки',
+                    horizontalPadding: 32.w,
+                    isActive: false,
+                  ),
+                  FilterContainer(
+                    text: 'Новое_2',
+                    horizontalPadding: 50.w,
+                    isActive: true,
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 50.h,

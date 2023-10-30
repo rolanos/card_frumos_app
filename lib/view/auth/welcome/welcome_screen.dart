@@ -95,6 +95,7 @@ class WelcomeScreen extends StatelessWidget {
                             ? ColorsUI.mainBlue
                             : ColorsUI.containerGray,
                         text: "Agree & Proceed",
+                        margin: EdgeInsets.symmetric(horizontal: 195.w),
                         onTap: () => (agreements.isSuccess)
                             ? context.go('/carousel/welcome/start')
                             : null,

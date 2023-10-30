@@ -100,7 +100,6 @@ class CarouselScreen extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 185.w),
-                  height: 158.h,
                   child: Text(
                     photoCards[carouselIndex].descriprion,
                     textAlign: TextAlign.center,
@@ -110,6 +109,7 @@ class CarouselScreen extends StatelessWidget {
                 const Spacer(),
                 ContainerButton(
                   color: ColorsUI.mainBlue,
+                  margin: EdgeInsets.symmetric(horizontal: 195.w),
                   text: 'Далее',
                   onTap: () => context.go('/carousel/welcome'),
                 ),

@@ -30,40 +30,44 @@ class BonusInfoContainer extends StatelessWidget {
           ),
           child: Row(
             children: [
-              SizedBox(
-                height: 1.sh,
-                width: 180.w,
-                child: Stack(
-                  children: [
-                    Positioned.fill(
-                      top: 16.h,
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          bonus.toString(),
-                          style: TextStyle(
-                            fontSize: 86.sp,
-                            color: ColorsUI.mainTextRed,
-                            fontWeight: FontWeight.w600,
+              Expanded(
+                flex: 1,
+                child: SizedBox(
+                  height: 1.sh,
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        top: 16.h,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Text(
+                            bonus.toString(),
+                            style: TextStyle(
+                              fontSize: 86.sp,
+                              color: ColorsUI.mainTextRed,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Positioned.fill(
-                      top: 115.h,
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: Text(
-                          "Petale Bonus",
-                          style: TextStyle(
-                            color: ColorsUI.mainBlue,
-                            fontSize: 29.5.sp,
-                            fontWeight: FontWeight.w500,
+                      Positioned.fill(
+                        top: 115.h,
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: FittedBox(
+                            child: Text(
+                              "Petale Bonus",
+                              style: TextStyle(
+                                color: ColorsUI.mainBlue,
+                                fontSize: 29.sp,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               SizedBox(
@@ -79,6 +83,7 @@ class BonusInfoContainer extends StatelessWidget {
                 ),
               ),
               Expanded(
+                flex: 3,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

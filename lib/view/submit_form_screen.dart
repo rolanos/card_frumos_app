@@ -36,6 +36,7 @@ class SubmitFormScreen extends StatelessWidget {
                         left: 84.0.w,
                         top: 81.h,
                         child: GestureDetector(
+                          onTap: () => context.pop(),
                           child: SvgPicture.asset(
                             "asset/icons/arrow_back.svg",
                             width: 52,

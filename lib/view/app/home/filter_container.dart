@@ -22,6 +22,7 @@ class FilterContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 84.h,
+      margin: EdgeInsets.only(right: 16.w),
       padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(58.r),

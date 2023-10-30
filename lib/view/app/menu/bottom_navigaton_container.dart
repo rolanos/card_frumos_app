@@ -50,95 +50,92 @@ class _BottomNavigationContainerState extends State<BottomNavigationContainer> {
                 height: 0,
               ),
             Expanded(
-              child: SizedBox(
-                height: 220.h,
-                child: BottomNavigationBar(
-                  currentIndex: widget.navigationShell.currentIndex,
-                  type: BottomNavigationBarType.fixed,
-                  backgroundColor: ColorsUI.mainWhite,
-                  onTap: (value) {
-                    if ((value == 3 && showFullMenu == false) ||
-                        (value == 4 && showFullMenu == true)) {
-                      setState(
-                        () {
-                          showFullMenu = !showFullMenu;
-                        },
-                      );
-                    }
-                  },
-                  items: [
+              child: BottomNavigationBar(
+                currentIndex: widget.navigationShell.currentIndex,
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: ColorsUI.mainWhite,
+                onTap: (value) {
+                  if ((value == 3 && showFullMenu == false) ||
+                      (value == 4 && showFullMenu == true)) {
+                    setState(
+                      () {
+                        showFullMenu = !showFullMenu;
+                      },
+                    );
+                  }
+                },
+                items: [
+                  BottomNavigationBarItem(
+                    icon: SizedBox(
+                      height: 63.w,
+                      child: SvgPicture.asset(
+                        "asset/icons/home.svg",
+                        width: 63.w,
+                      ),
+                    ),
+                    label: "Главная",
+                  ),
+                  if (showFullMenu)
                     BottomNavigationBarItem(
                       icon: SizedBox(
-                        height: 63.w,
-                        child: SvgPicture.asset(
-                          "asset/icons/home.svg",
-                          width: 63.w,
-                        ),
-                      ),
-                      label: "Главная",
-                    ),
-                    if (showFullMenu)
-                      BottomNavigationBarItem(
-                        icon: SizedBox(
-                          height: 80.w,
-                          child: Stack(
-                            children: [
-                              Center(
-                                child: SvgPicture.asset(
-                                  "asset/icons/sale.svg",
-                                  width: 80.w,
+                        height: 80.w,
+                        child: Stack(
+                          children: [
+                            Center(
+                              child: SvgPicture.asset(
+                                "asset/icons/sale.svg",
+                                width: 80.w,
+                              ),
+                            ),
+                            Center(
+                              child: Text(
+                                "%",
+                                style: TextStyle(
+                                  fontSize: 32.sp,
+                                  color: ColorsUI.mainBlue,
                                 ),
                               ),
-                              Center(
-                                child: Text(
-                                  "%",
-                                  style: TextStyle(
-                                    fontSize: 32.sp,
-                                    color: ColorsUI.mainBlue,
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                        label: "Акции",
-                      ),
-                    BottomNavigationBarItem(
-                      icon: SizedBox(
-                        height: 63.w,
-                        child: SvgPicture.asset(
-                          "asset/icons/geopoint.svg",
-                          width: 63.w,
+                            )
+                          ],
                         ),
                       ),
-                      label: "Аптеки",
+                      label: "Акции",
                     ),
-                    BottomNavigationBarItem(
-                      icon: SizedBox(
-                        height: 63.w,
-                        child: SvgPicture.asset(
-                          "asset/icons/chat.svg",
-                          width: 63.w,
-                        ),
+                  BottomNavigationBarItem(
+                    icon: SizedBox(
+                      height: 63.w,
+                      child: SvgPicture.asset(
+                        "asset/icons/geopoint.svg",
+                        width: 63.w,
                       ),
-                      label: "Формацевт",
                     ),
-                    BottomNavigationBarItem(
-                      icon: SizedBox(
-                        height: 63.w,
-                        child: SvgPicture.asset(
-                          "asset/icons/more.svg",
-                          width: 63.w,
-                          colorFilter: (showFullMenu)
-                              ? const ColorFilter.mode(
-                                  Colors.red, BlendMode.srcIn)
-                              : null,
-                        ),
+                    label: "Аптеки",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SizedBox(
+                      height: 63.w,
+                      child: SvgPicture.asset(
+                        "asset/icons/chat.svg",
+                        width: 63.w,
                       ),
-                      label: "Больше",
                     ),
-                  ],
-                ),
+                    label: "Формацевт",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: SizedBox(
+                      height: 63.w,
+                      child: SvgPicture.asset(
+                        "asset/icons/more.svg",
+                        width: 63.w,
+                        colorFilter: (showFullMenu)
+                            ? const ColorFilter.mode(
+                                Colors.red, BlendMode.srcIn)
+                            : null,
+                      ),
+                    ),
+                    label: "Больше",
+                  ),
+                ],
               ),
             ),
           ],
